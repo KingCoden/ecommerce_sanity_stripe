@@ -70,7 +70,7 @@ const ProductDetails = ({ products, product }) => {
                 {products.map((item) =>(
                     <Product key={item._id} product={item} />
                 ))}
-            </div>
+                </div>
         </div>
         </div>
 
