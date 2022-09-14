@@ -10,10 +10,10 @@ export default async function handler(req, res) {
             mode: 'payment',
             payment_method_types: ['card'],
             billing_address_collection: 'auto',
-            shipping_options: [
-                { shipping_rate: 'shr_1LYGu3GJ2t4R3lXuSvS3vFIO'},
-                { shipping_rate: 'shr_1LYGvBGJ2t4R3lXubERfUw0A'},
-            ],
+            // shipping_options: [
+            //     { shipping_rate: 'shr_1LYGu3GJ2t4R3lXuSvS3vFIO'},
+            //     { shipping_rate: 'shr_1LYGvBGJ2t4R3lXubERfUw0A'},
+            // ],
             line_items: req.body.map((item) => {
                 const img = item.image[0].asset._ref;
                 const newImage = img.replace('image-', 'https://cdn.sanity.io/images/0l84uh37/production/').replace('-webp', '.webp')
@@ -37,7 +37,7 @@ export default async function handler(req, res) {
             }),
             mode: 'payment',
             success_url: `${req.headers.origin}/success`,
-            cancel_url: `${req.headers.origin}/canceled`,
+            cancel_url: `${req.headers.origin}`,
             automatic_tax: {enabled: true},
           }
       // Create Checkout Sessions from body params.
